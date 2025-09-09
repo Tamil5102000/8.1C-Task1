@@ -1,7 +1,7 @@
 pipeline {
     agent any
     triggers {
-        pollSCM('H/1 * * * *') // Poll GitHub every minute
+        pollSCM('* * * * *') // Poll GitHub every minute
     }
     stages {
         stage('Checkout') {
