@@ -7,7 +7,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Stage 1: Checkout latest code from GitHub'
-                git branch: 'main', url: 'https://github.com/yourusername/IT-Professional-Practice.git'
+                git branch: 'main', url: 'https://github.com/Tamil5102000/8.1C-Task1.git'
             }
         }
         stage('Build') {
