@@ -26,7 +26,7 @@ pipeline {
             steps { echo 'Stage 6: Deploy to staging environment'; sh 'echo "Deploying to staging..."' }
         }
         stage('Notification') {
-            steps { echo 'Stage 7: Send notification to team'; sh 'echo "Sending notification..."' }
+            steps { echo 'Stage 7: Send notification to team'; sh 'echo "Sending message..."' }
         }
     }
 }
