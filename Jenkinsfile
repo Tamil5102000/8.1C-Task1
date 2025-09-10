@@ -3,30 +3,41 @@ pipeline {
     triggers {
         pollSCM('* * * * *') // Poll GitHub every minute
     }
-    stages {
-        stage('Checkout') {
+     stages {
+        stage('Build') {
             steps {
-                echo 'Stage 1: Checkout latest code from GitHub'
-                git branch: 'main', url: 'https://github.com/Tamil5102000/8.1C-Task1.git'
+                echo 'Stage 1: Build the code using a build automation tool (Tool: Maven)'
             }
         }
-        stage('Build') {
-            steps { echo 'Stage 2: Build the project'; sh 'echo "Building project..."' }
+        stage('Unit and Integration Tests') {
+            steps {
+                echo 'Stage 2: Run unit tests (Tool: JUnit) and integration tests (Tool: Maven Surefire Plugin)'
+            }
         }
-        stage('Code Quality Check') {
-            steps { echo 'Stage 3: Run code quality analysis'; sh 'echo "Checking code quality..."' }
+        stage('Code Analysis') {
+            steps {
+                echo 'Stage 3: Perform static code analysis (Tool: SonarQube)'
+            }
         }
-        stage('Unit Testing') {
-            steps { echo 'Stage 4: Run unit tests'; sh 'echo "Executing unit tests..."' }
+        stage('Security Scan') {
+            steps {
+                echo 'Stage 4: Run security scan to identify vulnerabilities (Tool: OWASP Dependency-Check or Snyk)'
+            }
         }
-        stage('Integration Testing') {
-            steps { echo 'Stage 5: Run integration tests'; sh 'echo "Executing integration tests..."' }
+        stage('Deploy to Staging') {
+            steps {
+                echo 'Stage 5: Deploy the application to staging environment (Tool: AWS CLI or Ansible)'
+            }
         }
-        stage('Deployment to Staging') {
-            steps { echo 'Stage 6: Deploy to staging environment'; sh 'echo "Deploying to staging..."' }
+        stage('Integration Tests on Staging') {
+            steps {
+                echo 'Stage 6: Run integration tests on staging (Tool: Selenium or Newman)'
+            }
         }
-        stage('Notification') {
-            steps { echo 'Stage 7: Send notification to team'; sh 'echo "Sending notification...."' }
+        stage('Deploy to Production') {
+            steps {
+                echo 'Stage 7: Deploy the application to production environment (Tool: AWS CLI or Ansible)'
+            }
         }
-    }
+     }
 }
