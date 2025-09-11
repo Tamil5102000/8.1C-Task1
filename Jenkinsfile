@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Unit and Integration Tests') {
             steps {
-                echo 'Stage 2: Run unit tests (Tool: JUnit) and integration tests (Tool: Maven Surefire Plugin)'
+                echo 'Stage 2: Run the unit tests (Tool: JUnit) and integration tests (Tool: Maven Surefire Plugin)'
             }
         }
         stage('Code Analysis') {
